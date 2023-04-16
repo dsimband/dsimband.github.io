@@ -1,0 +1,145 @@
+<html>
+
+<!--
+    
+    Run Instructions:
+
+
+        - Open terminal
+
+        - 'cd' into the directory where this html file is (js_in_webpage.html)
+
+        - Type the following into the terminal and hit 'enter':
+            
+            ### IN PYTHON 3 ### 
+            python -m http.server 
+
+            your server should read something like: Serving HTTP on localhost port 8000 ...
+
+        - now go to any browser and type in the HTTP address and the filename: something like:
+
+            http://localhost:8000/js_in_webpage.html
+        
+        - Congrats: you now have a local HTTP server running. Now, every time you change this file and save it, when you reload the browser you will see your changes!
+-->
+
+<head>
+    <title>Module 5 Introduction to Javascript |Mar 27 - Apr 9]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body style="margin:50; padding:4">
+
+<h1>1.a) Reverse a Word</h1>
+
+<script type="text/javascript">
+
+// Create a function to reverse any word that you type in. This can be typed into either an input box or an alert box, and then print the result in a box or on the webpage.
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+document.write('<p>The reverse of the following word is</p>')
+
+// Basic functions
+
+function reverseWord(w){
+    var r_word = '';
+    //if (num%2 == 0) {evenOdd = 'even';};
+
+    r_word = w.split("").reverse().join("");
+  
+    str = w + ' reverse is ' + r_word;
+    
+    return(str);
+};
+
+function process1(){
+    var t = document.getElementById("target_word");
+    t.innerHTML = reverseWord(document.getElementById('word').value);
+}
+</script>
+
+<p>
+<form>
+    <input id="word" type="text" size="20", maxlength="20", name="word">
+    <input type="button" value="reverse" onClick="process1();">
+</form>
+</p>
+
+<div id="target_word"></div>
+
+
+
+<br><br><br><br><br><br>
+<h1>1.b) First 20 Multiples of a Number </h1>
+
+<script type="text/javascript">
+
+// Create a function that takes an input number, and prints a table with the first 20 multiples of the number, in order 5x4
+
+</script>
+
+<script type="text/javascript">
+
+document.write('<p>The first 20 multiples of the following number are</p>')
+
+// Basic functions
+function generateTable(num) {
+  // creates a <table> element and a <tbody> element
+  const tbl = document.createElement("table");
+  tbl.cellPadding = "10"
+  const tblBody = document.createElement("tbody");
+
+  x = 0
+  // creating all cells
+  for (let i = 0; i < 5; i++) {
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < 4; j++) {
+      x += 1
+      s = x * num
+      const cell = document.createElement("td");
+      const cellText = document.createTextNode(`${s}`);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+
+    // add the row to the end of the table body
+    tblBody.appendChild(row);
+  }
+
+  // put the <tbody> in the <table>
+  tbl.appendChild(tblBody);
+  // appends <table> into <body>
+  document.body.appendChild(tbl);
+  // sets the border attribute of tbl to '2'
+  tbl.setAttribute("border", "1");
+}
+
+
+function process2(){
+    var t = document.getElementById("target_number");
+    t.innerHTML = generateTable(document.getElementById('num').value);
+}
+</script>
+
+
+<p>
+<form>
+    <input id="num" type="number" min="-100", max="100",name="num">
+    <input type="button" value="calculate" onClick="process2();">
+</form>
+</p>
+
+
+</body>
+</html>
+
+
+
